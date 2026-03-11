@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Projects Hub",
+    "summary": "Projects gallery with search and technology filters, deployed on Vercel.",
+    "description": "Frontend project built with React and TypeScript, designed as a projects gallery with search and technology filters and deployed on Vercel.",
+    "stack": "React • TypeScript • Vercel",
+    "live": "https://projects-hub-woad.vercel.app/",
+    "code": ""
+  },
+  {
+    "title": "3D Platformer PC Game",
+    "summary": "Game design and interactive worldbuilding project presented in Figma.",
+    "description": "Game design project related to immersive and interactive media work, presented as a Figma case study.",
+    "stack": "Game Design • Figma • Interactive Media",
+    "live": "https://www.figma.com/design/xA84ZxpAY33RCApVy430Rj/Game-Design?node-id=0-1&p=f",
+    "code": ""
+  },
+  {
+    "title": "Neurolitics UI/UX Design",
+    "summary": "UI/UX design project presented as a Figma case study.",
+    "description": "Product design work focused on interface design, layout structure, and user-centered thinking, presented in Figma.",
+    "stack": "UI/UX • Figma • Product Design",
+    "live": "https://www.figma.com/design/NYIsqWV1w94E55hLYiT7oU/Motiview?node-id=1622-261460&p=f&t=vgaNYr3EIfYGApo7-0",
+    "code": ""
+  }
+]
