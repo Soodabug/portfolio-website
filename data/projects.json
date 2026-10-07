@@ -1,42 +1,97 @@
-[
-  {
-    "title": "Day Planner",
-    "summary": "Full stack daily planner with accounts, tasks and push reminders.",
-    "description": "Full stack app: a React and TypeScript frontend, a Node.js API with Hono, PostgreSQL with Drizzle, login with JWT, password reset by email, and reminders sent as web push notifications. Deployed on Render and Neon.",
-    "stack": "React • TypeScript • Node.js • PostgreSQL",
-    "live": "https://day-planner-web.onrender.com",
-    "code": "https://github.com/Soodabug/day-planner"
-  },
-  {
-    "title": "Projects Hub",
-    "summary": "Projects gallery with search and tech filters, tested and deployed automatically.",
-    "description": "Built with React and TypeScript. Search and tech filters that can be shared as a link, 33 tests with Vitest and React Testing Library, and a GitHub Actions pipeline that tests and deploys it.",
-    "stack": "React • TypeScript • Vitest • GitHub Actions",
-    "live": "https://soodabug.github.io/projects-hub/",
-    "code": "https://github.com/Soodabug/projects-hub"
-  },
-  {
-    "title": "Study Night Flashcards",
-    "summary": "Flashcards app with end-to-end and unit tests and an automated pipeline.",
-    "description": "A flashcards app I tested and prepared for production: Cypress end-to-end tests, Mocha unit tests, ESLint, a Parcel build, and a GitHub Actions pipeline that publishes the site only when all tests pass.",
-    "stack": "JavaScript • Cypress • Mocha • GitHub Actions",
-    "live": "https://soodabug.github.io/study-night-flashcards/",
-    "code": "https://github.com/Soodabug/study-night-flashcards"
-  },
-  {
-    "title": "3D Platformer PC Game",
-    "summary": "Game design and interactive worldbuilding project presented in Figma.",
-    "description": "Game design project related to immersive and interactive media work, presented as a Figma case study.",
-    "stack": "Game Design • Figma • Interactive Media",
-    "live": "https://www.figma.com/design/xA84ZxpAY33RCApVy430Rj/Game-Design?node-id=0-1&p=f",
-    "code": ""
-  },
-  {
-    "title": "Neurolitics UI/UX Design",
-    "summary": "UI/UX design project presented as a Figma case study.",
-    "description": "Product design work focused on interface design, layout structure, and user-centered thinking, presented in Figma.",
-    "stack": "UI/UX • Figma • Product Design",
-    "live": "https://www.figma.com/design/NYIsqWV1w94E55hLYiT7oU/Motiview?node-id=1622-261460&p=f&t=vgaNYr3EIfYGApo7-0",
-    "code": ""
-  }
-]
+{
+  "code": [
+    {
+      "title": "Day Planner",
+      "kind": "Full stack web app",
+      "description": "A daily planner with accounts, tasks and reminders that arrive as push notifications, even when the tab is closed. I built the React frontend, the API, the database and the deployment.",
+      "points": [
+        "Node.js API with Hono, PostgreSQL with Drizzle, validation with Zod",
+        "Login with JWT, password reset by email, log out on all devices",
+        "Web Push with a service worker and a cron-triggered job",
+        "Works without an account first, then moves your tasks into it"
+      ],
+      "stack": ["React", "TypeScript", "Node.js", "PostgreSQL", "Web Push"],
+      "image": "assets/work/planner.webp",
+      "alt": "Day Planner home page with the task input and today's progress",
+      "live": "https://day-planner-web.onrender.com",
+      "code": "https://github.com/Soodabug/day-planner"
+    },
+    {
+      "title": "Projects Hub",
+      "kind": "React app",
+      "description": "A gallery of my projects with search and tech filters that can be shared as a link. 35 tests, and a pipeline that tests and deploys every push.",
+      "stack": ["React", "TypeScript", "Vitest", "GitHub Actions"],
+      "image": "assets/work/hub.webp",
+      "alt": "Projects Hub page with a search box and tech filter buttons",
+      "live": "https://soodabug.github.io/projects-hub/",
+      "code": "https://github.com/Soodabug/projects-hub"
+    },
+    {
+      "title": "Study Night",
+      "kind": "Testing and tooling",
+      "description": "A flashcards app I tested and prepared for production: end-to-end and unit tests, linting, a build, and a pipeline that only publishes when everything passes.",
+      "stack": ["JavaScript", "Cypress", "Mocha", "GitHub Actions"],
+      "image": "assets/work/flashcards.webp",
+      "alt": "Study Night home page",
+      "live": "https://soodabug.github.io/study-night-flashcards/",
+      "code": "https://github.com/Soodabug/study-night-flashcards"
+    }
+  ],
+  "design": [
+    {
+      "title": "Motiview, Neurolytics",
+      "kind": "B2C platform, product UI",
+      "description": "End-to-end UI and design system for a consumer assessment platform.",
+      "image": "assets/design/motiview.webp",
+      "alt": "Motiview landing screen",
+      "link": "https://www.figma.com/design/NYIsqWV1w94E55hLYiT7oU/Motiview",
+      "linkLabel": "Open in Figma"
+    },
+    {
+      "title": "Pierland Perfume",
+      "kind": "E-commerce, UI/UX",
+      "description": "Product presentation and a consistent shopping flow for a perfume brand.",
+      "image": "assets/design/pierland.webp",
+      "alt": "Pierland product page",
+      "link": "https://www.figma.com/design/vhYM2yZgh7oxB4Y1GQOn2q/Pierland-UI",
+      "linkLabel": "Open in Figma"
+    },
+    {
+      "title": "Mr. Burger",
+      "kind": "Mobile app, UI/UX",
+      "description": "Food ordering: onboarding, menu, customization and checkout.",
+      "image": "assets/design/mr-burger.webp",
+      "alt": "Mr. Burger food delivery app screens"
+    },
+    {
+      "title": "Ditty",
+      "kind": "Mobile app, UI/UX",
+      "description": "Music streaming: artist picks, now playing and login.",
+      "image": "assets/design/ditty.webp",
+      "alt": "Ditty music app screens"
+    },
+    {
+      "title": "Nike, Unique",
+      "kind": "Web, UI concept",
+      "description": "Product hero concept built on bold type, color and one product.",
+      "image": "assets/design/nike.webp",
+      "alt": "Nike e-commerce concept"
+    },
+    {
+      "title": "3D Platformer PC Game",
+      "kind": "Game design",
+      "description": "Game design and interactive worldbuilding, presented as a case study.",
+      "link": "https://www.figma.com/design/xA84ZxpAY33RCApVy430Rj/Game-Design?node-id=0-1&p=f",
+      "linkLabel": "Open in Figma"
+    }
+  ],
+  "brand": [
+    { "title": "Chashâb", "kind": "Logo, calligraphy", "image": "assets/design/chashab-logo.webp" },
+    { "title": "Tee Academy", "kind": "Logo, brand mark", "image": "assets/design/tee-academy.webp" },
+    { "title": "Sweet Art Gallery", "kind": "Logo, monogram", "image": "assets/design/sweet-art-gallery.webp" },
+    { "title": "Roksana Meson", "kind": "Logo, fashion", "image": "assets/design/roksana-meson.webp" },
+    { "title": "Chashâb", "kind": "Business cards", "image": "assets/design/chashab-cards.webp" },
+    { "title": "Khâne-ye Mohabbat", "kind": "Business cards", "image": "assets/design/khane-mohabbat-cards.webp" },
+    { "title": "Organo Gold", "kind": "Packaging, flyer", "image": "assets/design/organo-gold.webp" }
+  ]
+}

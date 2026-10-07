@@ -3,119 +3,197 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soodabeh Malekzadeh | Junior Full Stack Developer</title>
+    <title>Soodabeh Malekzadeh | Full Stack Developer</title>
     <meta
       name="description"
-      content="Portfolio of Soodabeh Malekzadeh, full stack developer"
+      content="Soodabeh Malekzadeh, full stack developer with a UI/UX design background. React, TypeScript, Node.js, PostgreSQL."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link
+      rel="preload"
+      href="assets/fonts/anybody.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <header class="hero">
-      <nav class="nav container">
-        <h1 class="logo">Soodabeh Malekzadeh</h1>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+    <a class="skip" href="#work">Skip to my work</a>
 
-      <section class="hero-content container">
-        <div>
-          <p class="eyebrow">Junior Full Stack Developer</p>
-          <h2>I build clean and responsive web experiences.</h2>
-          <p class="hero-text">
-            I build web apps end to end: React and TypeScript in the browser,
-            Node.js and PostgreSQL on the server.
+    <div class="field">
+      <header class="wrap top">
+        <a class="brand" href="#top" aria-label="Soodabeh Malekzadeh, top of page">
+          <span class="brandMark" aria-hidden="true">SM</span>
+        </a>
+        <nav class="menu" aria-label="Sections">
+          <a href="#work">Code</a>
+          <a href="#design">Design</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="wrap hero" id="top">
+        <div class="heroText">
+          <h1 class="name">Soodabeh Malekzadeh</h1>
+          <p class="role">Full stack developer with a designer’s eye.</p>
+          <p class="lede">
+            I spent six years designing interfaces. Now I also build them, from
+            the first screen down to the database: React and TypeScript in the
+            browser, Node.js and PostgreSQL on the server.
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">View Projects</a>
-            <a class="button" href="#contact">Contact Me</a>
+          <div class="actions">
+            <a class="button" href="#work">See my work</a>
+            <a class="button ghost" href="https://soodabug.github.io/Resume/"
+              >Read my CV</a
+            >
           </div>
         </div>
-        <div class="hero-card">
-          <img src="assets/Picture.png" alt="Profile photo" />
-        </div>
+
+        <figure class="portrait">
+          <img
+            src="assets/me.webp"
+            alt="Portrait of Soodabeh Malekzadeh"
+            width="900"
+            height="1350"
+          />
+        </figure>
       </section>
-    </header>
+    </div>
+
+    <dl class="facts">
+      <div class="wrap factsRow">
+        <div>
+          <dt>Based in</dt>
+          <dd>Genoa, Italy</dd>
+        </div>
+        <div>
+          <dt>Looking for</dt>
+          <dd>Full stack and frontend roles</dd>
+        </div>
+        <div>
+          <dt>Languages</dt>
+          <dd>English, Italian, Persian</dd>
+        </div>
+      </div>
+    </dl>
 
     <main>
-      <section id="about" class="section container">
-        <h3>About Me</h3>
-        <p>
-          I am a Junior Full Stack Developer with a background in UI/UX and
-          software engineering. I build responsive interfaces with React and
-          TypeScript, and APIs with Node.js and PostgreSQL. My latest project,
-          Day Planner, covers the whole path: database, API, login, push
-          notifications and deployment. I am interested in collaborative
-          product teams and user-centered implementation.
-        </p>
+      <section class="wrap section" id="work" aria-labelledby="work-title">
+        <div class="sectionHead">
+          <h2 id="work-title">Code</h2>
+          <p>
+            Things I built and shipped. Each one is live, and the code is open.
+          </p>
+        </div>
+        <div id="codeList" class="codeList">
+          <p class="loading">Loading projects…</p>
+        </div>
       </section>
 
-      <section id="projects" class="section container">
-        <div class="section-head">
-          <h3>Projects</h3>
-          <p>Selected web development and design projects.</p>
+      <section class="tint" id="design" aria-labelledby="design-title">
+        <div class="wrap section">
+          <div class="sectionHead">
+            <h2 id="design-title">Design</h2>
+            <p>
+              Where I come from. Product interfaces, design systems, and brand
+              work, mostly in Figma.
+            </p>
+          </div>
+          <div id="designList" class="designGrid"></div>
+
+          <h3 class="subhead">Logos and print</h3>
+          <div id="brandList" class="brandGrid"></div>
+
+          <p class="more">
+            More on
+            <a href="https://dribbble.com/soodeui" target="_blank" rel="noopener noreferrer"
+              >Dribbble</a
+            >.
+          </p>
+        </div>
+      </section>
+
+      <section class="wrap section about" id="about" aria-labelledby="about-title">
+        <div>
+          <h2 id="about-title">About</h2>
+          <p>
+            I studied software engineering, worked as a graphic and UI/UX
+            designer, and came back to code. At Neurolytics I design the B2C
+            product and help build it with React and TypeScript, so I know both
+            sides of the handoff.
+          </p>
+          <p>
+            What I like most is the whole path: understanding what people need,
+            designing it, and then making it real, tested and deployed. I am
+            finishing a master’s in Digital Humanities (Human-Computer
+            Interaction) at the University of Genoa.
+          </p>
         </div>
 
-        <div class="spotlight" id="spotlight">
-          <div class="spotlight-text">
-            <span class="tag" id="spotlightTag">Featured</span>
-            <h4 id="spotlightTitle">Loading project...</h4>
-            <p id="spotlightDescription">Please wait...</p>
-            <div class="spotlight-actions">
-              <a
-                id="spotlightLive"
-                class="button primary"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                id="spotlightCode"
-                class="button"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Source Code</a
-              >
-            </div>
+        <div class="skills">
+          <div>
+            <h3>I build with</h3>
+            <ul>
+              <li>React, TypeScript, JavaScript</li>
+              <li>HTML, CSS, Tailwind</li>
+              <li>Node.js, Hono, REST APIs</li>
+              <li>PostgreSQL, Drizzle ORM</li>
+              <li>Cypress, Vitest, Testing Library</li>
+              <li>Git, GitHub Actions</li>
+            </ul>
+          </div>
+          <div>
+            <h3>I design with</h3>
+            <ul>
+              <li>Figma, design systems</li>
+              <li>Wireframes, prototypes, user flows</li>
+              <li>Usability testing</li>
+              <li>Accessibility (WCAG)</li>
+              <li>Photoshop, Illustrator</li>
+            </ul>
           </div>
         </div>
-
-        <div class="project-grid" id="projectGrid"></div>
       </section>
-      <section id="contact" class="section container">
-        <h3>Contact</h3>
-        <p class="contact-text">
-          I’m open to full stack, frontend, and collaborative product opportunities.
-          Feel free to reach out through email or connect with me on GitHub and
-          LinkedIn.
-        </p>
+    </main>
 
-        <div class="contact-links">
-          <a class="button primary" href="mailto:soode.malek@gmail.com"
-            >Email Me</a
+    <section class="field contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Let’s talk.</h2>
+        <p>
+          I’m open to full stack and frontend roles. The fastest way to reach me
+          is email.
+        </p>
+        <div class="actions">
+          <a class="button" href="mailto:soode.malek@gmail.com"
+            >soode.malek@gmail.com</a
           >
           <a
-            class="button"
-            href="https://github.com/Soodabug"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub</a
-          >
-          <a
-            class="button"
+            class="button ghost"
             href="https://www.linkedin.com/in/soodabehmalekzadeh/"
             target="_blank"
             rel="noopener noreferrer"
             >LinkedIn</a
           >
+          <a
+            class="button ghost"
+            href="https://github.com/Soodabug"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+          <a class="button ghost" href="https://soodabug.github.io/Resume/">CV</a>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>Soodabeh Malekzadeh, 2026</p>
+        <p>Built with plain HTML, CSS and JavaScript.</p>
+      </div>
+    </footer>
   </body>
 </html>

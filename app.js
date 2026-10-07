@@ -1,168 +1,152 @@
-const projectGrid = document.getElementById("projectGrid");
-const spotlightTitle = document.getElementById("spotlightTitle");
-const spotlightDescription = document.getElementById("spotlightDescription");
-const spotlightLive = document.getElementById("spotlightLive");
-const spotlightCode = document.getElementById("spotlightCode");
-const spotlightTag = document.getElementById("spotlightTag");
+// Renders the project lists from data/projects.json and reveals sections on scroll.
 
-const form = document.getElementById("contactForm");
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const messageInput = document.getElementById("message");
-const nameError = document.getElementById("nameError");
-const emailError = document.getElementById("emailError");
-const messageError = document.getElementById("messageError");
-const charCount = document.getElementById("charCount");
+const codeList = document.getElementById("codeList");
+const designList = document.getElementById("designList");
+const brandList = document.getElementById("brandList");
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadProjects();
-  setupForm();
-});
+// Small helper: el("p", { class: "x" }, "text" or child nodes...)
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  for (const [name, value] of Object.entries(attrs)) {
+    if (value !== undefined && value !== null) node.setAttribute(name, value);
+  }
+  for (const child of children) {
+    if (child !== undefined && child !== null) node.append(child);
+  }
+  return node;
+}
+
+function externalLink(href, text, className) {
+  return el(
+    "a",
+    { href, class: className, target: "_blank", rel: "noopener noreferrer" },
+    text,
+  );
+}
+
+function picture(src, alt, className) {
+  return el(
+    "div",
+    { class: className },
+    el("img", { src, alt: alt || "", loading: "lazy", decoding: "async" }),
+  );
+}
+
+function stackList(stack) {
+  return el(
+    "ul",
+    { class: "stack", "aria-label": "Built with" },
+    ...stack.map((tech) => el("li", {}, tech)),
+  );
+}
+
+function codeProject(project, index) {
+  const featured = index === 0;
+
+  const text = el(
+    "div",
+    { class: "projectText" },
+    el("p", { class: "kind" }, project.kind),
+    el("h3", {}, project.title),
+    el("p", { class: "projectDesc" }, project.description),
+    featured && project.points
+      ? el("ul", { class: "points" }, ...project.points.map((p) => el("li", {}, p)))
+      : null,
+    stackList(project.stack),
+    el(
+      "div",
+      { class: "projectLinks" },
+      externalLink(project.live, "Open it", "button small"),
+      externalLink(project.code, "Read the code", "button small ghost"),
+    ),
+  );
+
+  return el(
+    "article",
+    { class: featured ? "project featured reveal" : "project reveal" },
+    picture(project.image, project.alt, "shot"),
+    text,
+  );
+}
+
+function designProject(project) {
+  return el(
+    "article",
+    { class: "designCard reveal" },
+    project.image ? picture(project.image, project.alt, "designShot") : null,
+    el(
+      "div",
+      { class: "designText" },
+      el("p", { class: "kind" }, project.kind),
+      el("h3", {}, project.title),
+      el("p", {}, project.description),
+      project.link ? externalLink(project.link, project.linkLabel, "textLink") : null,
+    ),
+  );
+}
+
+function brandPiece(piece) {
+  return el(
+    "figure",
+    { class: "brandPiece reveal" },
+    el("img", {
+      src: piece.image,
+      alt: `${piece.title}: ${piece.kind}`,
+      loading: "lazy",
+      decoding: "async",
+    }),
+    el("figcaption", {}, el("strong", {}, piece.title), ` ${piece.kind}`),
+  );
+}
+
+// Sections fade up the first time they scroll into view.
+// Without IntersectionObserver (or with reduced motion) everything is simply visible.
+function revealOnScroll() {
+  const items = document.querySelectorAll(".reveal");
+  const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (still || !("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("in"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      }
+    },
+    { rootMargin: "0px 0px -8% 0px" },
+  );
+  items.forEach((item) => observer.observe(item));
+}
 
 async function loadProjects() {
   try {
-    const response = await fetch("./data/projects.json");
+    const response = await fetch("data/projects.json");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(`HTTP error: ${response.status}`);
-    }
-
-    const projects = await response.json();
-    console.log(projects);
-
-    if (!Array.isArray(projects) || projects.length === 0) {
-      throw new Error("projects.json is empty or not an array");
-    }
-
-    renderProjects(projects);
-    updateSpotlight(projects[0]);
+    codeList.replaceChildren(...data.code.map(codeProject));
+    designList.replaceChildren(...data.design.map(designProject));
+    brandList.replaceChildren(...data.brand.map(brandPiece));
   } catch (error) {
-    console.error("Project loading error:", error);
-
-    if (spotlightTitle) {
-      spotlightTitle.textContent = "Could not load projects";
-    }
-
-    if (spotlightDescription) {
-      spotlightDescription.textContent =
-        "Check app.js, projects.json, and the file path.";
-    }
-
-    if (spotlightLive) spotlightLive.style.display = "none";
-    if (spotlightCode) spotlightCode.style.display = "none";
+    console.error("Could not load projects", error);
+    codeList.replaceChildren(
+      el(
+        "p",
+        { class: "loading" },
+        "The projects could not be loaded. You can find them on ",
+        externalLink("https://github.com/Soodabug", "GitHub", "textLink"),
+        ".",
+      ),
+    );
   }
+
+  revealOnScroll();
 }
 
-function renderProjects(projects) {
-  if (!projectGrid) return;
-
-  projectGrid.innerHTML = "";
-
-  projects.forEach((project) => {
-    const card = document.createElement("article");
-    card.className = "project-card";
-
-    card.innerHTML = `
-      <span class="tag">${project.stack || "Project"}</span>
-      <h4>${project.title || "Untitled Project"}</h4>
-      <p>${project.summary || "No summary available."}</p>
-    `;
-
-    card.addEventListener("click", () => {
-      updateSpotlight(project);
-    });
-
-    projectGrid.appendChild(card);
-  });
-}
-
-function updateSpotlight(project) {
-  if (!project) return;
-
-  if (spotlightTitle) {
-    spotlightTitle.textContent = project.title || "Untitled Project";
-  }
-
-  if (spotlightDescription) {
-    spotlightDescription.textContent =
-      project.description || "No description available.";
-  }
-
-  if (spotlightTag) {
-    spotlightTag.textContent = project.stack || "Project";
-  }
-
-  if (spotlightLive) {
-    if (project.live && project.live !== "#") {
-      spotlightLive.href = project.live;
-      spotlightLive.style.display = "inline-flex";
-    } else {
-      spotlightLive.style.display = "none";
-    }
-  }
-
-  if (spotlightCode) {
-    if (project.code && project.code !== "#") {
-      spotlightCode.href = project.code;
-      spotlightCode.style.display = "inline-flex";
-    } else {
-      spotlightCode.style.display = "none";
-    }
-  }
-}
-
-function setupForm() {
-  if (!form) return;
-
-  updateCharCount();
-
-  if (messageInput) {
-    messageInput.addEventListener("input", updateCharCount);
-  }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    clearErrors();
-
-    const name = nameInput ? nameInput.value.trim() : "";
-    const email = emailInput ? emailInput.value.trim() : "";
-    const message = messageInput ? messageInput.value.trim() : "";
-
-    let isValid = true;
-
-    if (name.length < 2) {
-      if (nameError) nameError.textContent = "Please enter your name.";
-      isValid = false;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      if (emailError) emailError.textContent = "Please enter a valid email.";
-      isValid = false;
-    }
-
-    if (message.length < 10) {
-      if (messageError) {
-        messageError.textContent = "Message must be at least 10 characters.";
-      }
-      isValid = false;
-    }
-
-    if (isValid) {
-      alert("Thanks! Your message passed validation.");
-      form.reset();
-      updateCharCount();
-    }
-  });
-}
-
-function updateCharCount() {
-  if (charCount && messageInput) {
-    charCount.textContent = `${messageInput.value.length}/300`;
-  }
-}
-
-function clearErrors() {
-  if (nameError) nameError.textContent = "";
-  if (emailError) emailError.textContent = "";
-  if (messageError) messageError.textContent = "";
-}
+loadProjects();
