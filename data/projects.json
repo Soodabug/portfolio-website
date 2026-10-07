@@ -1,11 +1,19 @@
 [
   {
+    "title": "Day Planner",
+    "summary": "Full stack daily planner with accounts, tasks and push reminders.",
+    "description": "Full stack app: a React and TypeScript frontend, a Node.js API with Hono, PostgreSQL with Drizzle, login with JWT, password reset by email, and reminders sent as web push notifications. Deployed on Render and Neon.",
+    "stack": "React • TypeScript • Node.js • PostgreSQL",
+    "live": "https://day-planner-web.onrender.com",
+    "code": "https://github.com/Soodabug/day-planner"
+  },
+  {
     "title": "Projects Hub",
     "summary": "Projects gallery with search and technology filters, deployed on Vercel.",
     "description": "Frontend project built with React and TypeScript, designed as a projects gallery with search and technology filters and deployed on Vercel.",
     "stack": "React • TypeScript • Vercel",
     "live": "https://projects-hub-woad.vercel.app/",
-    "code": ""
+    "code": "https://github.com/Soodabug/projects-hub"
   },
   {
     "title": "3D Platformer PC Game",
