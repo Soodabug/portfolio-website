@@ -2,15 +2,21 @@
   "code": [
     {
       "title": "Day Planner",
-      "kind": "Full stack web app",
-      "description": "A daily planner with accounts, tasks and reminders that arrive as push notifications, even when the tab is closed. I built the React frontend, the API, the database and the deployment.",
+      "kind": "My first full stack app",
+      "description": "A daily planner with accounts and reminders that arrive as push notifications. I wrote the React frontend and, for the first time, the API and the database as well.",
       "points": [
-        "Node.js API with Hono, PostgreSQL with Drizzle, validation with Zod",
-        "Login with JWT, password reset by email, log out on all devices",
-        "Web Push with a service worker and a cron-triggered job",
-        "Works without an account first, then moves your tasks into it"
+        "Node.js API with Hono, PostgreSQL with Drizzle",
+        "Sign up, login and password reset by email",
+        "Push reminders with a service worker",
+        "You can use it without an account first"
       ],
-      "stack": ["React", "TypeScript", "Node.js", "PostgreSQL", "Web Push"],
+      "stack": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Web Push"
+      ],
       "image": "assets/work/planner.webp",
       "alt": "Day Planner home page with the task input and today's progress",
       "live": "https://day-planner-web.onrender.com",
@@ -19,8 +25,13 @@
     {
       "title": "Projects Hub",
       "kind": "React app",
-      "description": "A gallery of my projects with search and tech filters that can be shared as a link. 35 tests, and a pipeline that tests and deploys every push.",
-      "stack": ["React", "TypeScript", "Vitest", "GitHub Actions"],
+      "description": "A page that lists my projects, with search and tech filters. I used it to practice testing React components. It has 35 tests.",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vitest",
+        "GitHub Actions"
+      ],
       "image": "assets/work/hub.webp",
       "alt": "Projects Hub page with a search box and tech filter buttons",
       "live": "https://soodabug.github.io/projects-hub/",
@@ -28,9 +39,14 @@
     },
     {
       "title": "Study Night",
-      "kind": "Testing and tooling",
-      "description": "A flashcards app I tested and prepared for production: end-to-end and unit tests, linting, a build, and a pipeline that only publishes when everything passes.",
-      "stack": ["JavaScript", "Cypress", "Mocha", "GitHub Actions"],
+      "kind": "Testing",
+      "description": "A flashcards app from a Udacity course. My part was the tests and the setup around it: Cypress and Mocha tests, linting, a build, and a pipeline that publishes only when the tests pass.",
+      "stack": [
+        "JavaScript",
+        "Cypress",
+        "Mocha",
+        "GitHub Actions"
+      ],
       "image": "assets/work/flashcards.webp",
       "alt": "Study Night home page",
       "live": "https://soodabug.github.io/study-night-flashcards/",
@@ -86,12 +102,40 @@
     }
   ],
   "brand": [
-    { "title": "Chashâb", "kind": "Logo, calligraphy", "image": "assets/design/chashab-logo.webp" },
-    { "title": "Tee Academy", "kind": "Logo, brand mark", "image": "assets/design/tee-academy.webp" },
-    { "title": "Sweet Art Gallery", "kind": "Logo, monogram", "image": "assets/design/sweet-art-gallery.webp" },
-    { "title": "Roksana Meson", "kind": "Logo, fashion", "image": "assets/design/roksana-meson.webp" },
-    { "title": "Chashâb", "kind": "Business cards", "image": "assets/design/chashab-cards.webp" },
-    { "title": "Khâne-ye Mohabbat", "kind": "Business cards", "image": "assets/design/khane-mohabbat-cards.webp" },
-    { "title": "Organo Gold", "kind": "Packaging, flyer", "image": "assets/design/organo-gold.webp" }
+    {
+      "title": "Chashâb",
+      "kind": "Logo, calligraphy",
+      "image": "assets/design/chashab-logo.webp"
+    },
+    {
+      "title": "Tee Academy",
+      "kind": "Logo, brand mark",
+      "image": "assets/design/tee-academy.webp"
+    },
+    {
+      "title": "Sweet Art Gallery",
+      "kind": "Logo, monogram",
+      "image": "assets/design/sweet-art-gallery.webp"
+    },
+    {
+      "title": "Roksana Meson",
+      "kind": "Logo, fashion",
+      "image": "assets/design/roksana-meson.webp"
+    },
+    {
+      "title": "Chashâb",
+      "kind": "Business cards",
+      "image": "assets/design/chashab-cards.webp"
+    },
+    {
+      "title": "Khâne-ye Mohabbat",
+      "kind": "Business cards",
+      "image": "assets/design/khane-mohabbat-cards.webp"
+    },
+    {
+      "title": "Organo Gold",
+      "kind": "Packaging, flyer",
+      "image": "assets/design/organo-gold.webp"
+    }
   ]
 }
